@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/* Basic styles for the html, body and main section */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding:0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Amiri", serif;
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex: 1 0 auto;
+    margin: 0;
+}
+
+/* Styles for the Navbar */
+.custom-navbar {
+    background-color: rgb(124 45 18)
+}
+
+.navbar-brand,
+.nav-link {
+    color: rgb(255 237 213);
+}
+
+.navbar-brand:hover {
+    color: rgb(255 237 213);
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    color: rgb(255 237 213);
+}
+
+.navbar-nav .nav-item-active .nav-link {
+    text-decoration: underline; 
+    color: rgb(255 237 213);
+    font-weight: bold;
+}
+
+/* style for the buttons */
+
+button {
+    margin-top: 15px;
+}
+
+button i {
+    margin-left: 5px;
+}
+.btn-sand {
+    background-color: rgb(255 237 213);
+    color: rgb(118, 107, 104);
+    font-weight: bold;
+    border: none;
+}
+
+.btn-sand:hover {
+    background-color: rgb(124 45 18);
+    color:  rgb(255 237 213);
+}
+
+.btn-mahagony {
+    background-color: rgb(154 52 18);
+    color: rgb(255 237 213);
+    font-weight: bold;
+    border: none;
+}
+
+.btn-mahagony:hover {
+    background-color: rgb(124 45 18);
+    color: rgb(255 237 213);
+    font-weight: bold;
+    border: none;
+}
+
+/* Spacing */
+section {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.get-in-touch {
+    margin-top: 50px;
+}
+
+.media-body {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+/* Style for the Hero container*/
+
+.hero-container {
+    height: auto;
+    min-height: 50vh;
+    background: url('/static/assets/images/hero-image.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin:0;
+}
+
+.hero-title {
+    color: rgb(255 237 213);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    color: rgb(255 237 213);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.hero-banner {
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+
+/* Style for the intro container */
+
+.intro-container {
+    height: auto;
+    min-height: 50vh;
+    background-color: rgb(255 247 237);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.intro-section, 
+.featured-dishes {
+    color: rgb(124 45 18);
+}
+
+.intro-section {
+    margin-right: 60px;
+}
+
+@media (max-width: 768px) {
+    .intro-container {
+        min-height: auto; 
+        height: auto; 
+    }
+
+    .intro-section {
+        flex-direction: column; 
+    }
+}
+
+/* Style for the featured dish container */
+
+.featured-dishes-container {
+    height: auto;
+    min-height: 55vh;
+    background-color: rgb(255 237 213);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .featured-dishes-container {
+        min-height: auto; 
+        height: auto; 
+    }
+
+    .featured-dishes {
+        flex-direction: column; 
+    }
+}
+/* Style for the Get in touch container */
+
+.get-in-touch-container {
+    height: auto;
+    min-height: 45vh;
+    background-color: rgb(154 52 18);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+}
+
+.get-in-touch {
+    color: rgb(255 237 213);
+}
+
+#emailHelp {
+    color: rgb(255 237 213);
+}
+
+/* Style for the form */
+
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.contact-form,
+.form-label {
+    font-size: 1.2rem;
+}
+
+
+/* Style for the footer */
+footer {
+    background-color: rgb(124, 45, 18);
+    color: rgb(255 237 213);
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 0px;
+    flex-shrink: 0;
+}
+
+footer ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+footer li {
+    font-size: 1.5em;
+    display: inline-block;
+    margin:0 25px;
+}
+
+.footer-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.fa-brands {
+    color: rgb(255 237 213);
+}
+
+/* Style for the Menu section */
+
+.menu-section {
+    background-color: rgb(255 237 213);
+    color: rgb(124 45 18);
+    font-size: 1.2rem;
+}
+
+.menu-content {
+    margin: 20px;
+}
+
+/* Map for the Restaurant location */
+#map {
+    height: 400px;
+    width: 100%; 
+    margin-bottom: 30px; 
+  }
+
+  .location {
+    padding: 40px;
+  }
