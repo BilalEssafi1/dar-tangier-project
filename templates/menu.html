@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!--Hero Section-->
+        <div class="hero-container container-fluid">
+            <div class="overlay">&nbsp;</div>
+            <div class="row">
+                <div class="col-12">
+                    <section class="hero-banner p-5 text-center">
+                        <h1 class="text-uppercase hero-title">Our Menu</h1>
+                        <h3 class="hero-text">Savor the authentic tastes of Morocco.</h3>
+                        <a href="#signUpModal" data-bs-target="#signUpModal" data-bs-toggle="modal">
+                            <button type="button" class="btn btn-primary btn-sand">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        </a>
+                    </section>
+                </div>
+            </div>
+        </div>  
+        <!--/Hero Section-->
+         <!--Menu Section-->
+        <div class="menu-section container-fluid">
+            <!--Starters-->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-uppercase text-center menu-content">Starters</h3>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/hummus.jpg' %}" alt="Image of Hummus" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Hummus</h4>
+                            <p>Traditional chickpea dip served with fresh pita. <strong>€5</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/zaalouk.jpg' %}" alt="Image of Zaalouk" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Zaalouk</h4>
+                            <p>Warm eggplant salad with garlic and spices. <strong>€6</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/moroccan-salad.avif' %}" alt="Image of Moroccan Salad" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Moroccan Salad</h4>
+                            <p>Fresh salad with seasonal vegetables. <strong>€4</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/Starters-->
+            <!--Mains-->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-uppercase text-center">Main Courses</h3>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/tagine.jpg' %}" alt="Image of Tagine" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Tagine</h4>
+                            <p>Slow-cooked savory stew with tender meat or vegetables and aromatic spices. <strong>€15</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/couscous.avif' %}" alt="Image of Couscous" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Couscous</h4>
+                            <p>Fluffy semolina topped with vegetables and succulent meats. <strong>€12</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/pastilla.jpg' %}" alt="Image of Pastilla" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Pastilla</h4>
+                            <p>Sweet and savory pie with layers of crispy pastry and spiced filling. <strong>€14</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/Mains-->
+            <!--Desserts-->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-uppercase text-center">Desserts</h3>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/fruit-salad.jpg' %}" alt="Image of Fruit Salad" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Moroccan Fruit Salad</h4>
+                            <p>Seasonal fruits served with honey and mint. <strong>€5</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/mint-tea.avif' %}" alt="Image of Mint Tea" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Mint Tea</h4>
+                            <p>Traditional Moroccan mint tea, refreshing and sweet. <strong>€3</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-3">
+                    <div class="media">
+                        <img src="{% static 'assets/images/chebekia.webp' %}" alt="Image of Chebekia" height="250" width="250">
+                        <div class="media-body">
+                            <h4 class="text-uppercase">Chebekia</h4>
+                            <p>Crunchy pastry dipped in honey and flavored with sesame.<strong>€4</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--/Desserts-->
+        </div>
+         <!--/Menu Section-->
+    </main>
+{% endblock %}
