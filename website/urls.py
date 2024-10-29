@@ -3,5 +3,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home, name='index'),
+    path('menu/', views.menu, name='menu'),
+    path('location/', views.menu, name='location')
     ]
