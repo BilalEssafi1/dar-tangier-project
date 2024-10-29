@@ -85,7 +85,7 @@ button i {
 
 /* Spacing */
 section {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 0px;
 }
 
@@ -126,7 +126,7 @@ section {
 .hero-title {
     color: rgb(255 237 213);
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .hero-text {
@@ -177,6 +177,17 @@ section {
 .intro-section {
     margin-right: 60px;
 }
+
+@media (max-width: 768px) {
+    .intro-container {
+        min-height: auto; 
+        height: auto; 
+    }
+
+    .intro-section {
+        flex-direction: column; 
+}
+
 /* Style for the featured dish container */
 
 .featured-dishes-container {
@@ -192,6 +203,16 @@ section {
     justify-content: center;
     position: relative;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .featured-dishes-container {
+        min-height: auto; 
+        height: auto; 
+    }
+
+    .featured-dishes {
+        flex-direction: column; 
 }
 
 /* Style for the Get in touch container */
@@ -230,6 +251,7 @@ section {
 .form-label {
     font-size: 1.2rem;
 }
+
 
 /* Style for the footer */
 footer {

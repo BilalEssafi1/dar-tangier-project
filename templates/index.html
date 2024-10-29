@@ -10,10 +10,12 @@
                         <h1 class="text-uppercase hero-title">Welcome to Dar Tangier!</h1>
                         <h3 class="hero-text">Experience the rich flavors and warm hospitality of Morocco in the heart of Munich.</h3>
                         <a href="{% url 'menu' %}">
-                            <button type="button" class="btn btn-primary btn-sand">View Menu<i class="fa-solid fa-bars"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">View Menu<i class="fa-solid fa-bars"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">View Menu<i class="fa-solid fa-bars"></i></button>
                         </a>
                         <a href="#signUpModal" data-bs-target="#signUpModal" data-bs-toggle="modal">
-                            <button type="button" class="btn btn-primary btn-sand">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
                         </a>
                     </section>
                 </div>
@@ -39,7 +41,7 @@
                             </div>
                         </section>
                     </div>
-                    <div class="col-md-6 my-5 text-center">
+                    <div class="col-12 col-md-6 my-5 text-center">
                         <img src="{% static 'assets/images/restaurant.avif' %}" alt="Restaurant" class="img-fluid" style="max-width: 100%; height: auto;">
                     </div>
                 </div>
@@ -114,7 +116,8 @@
                     </div>
                     <div class="text-center">
                         <a href="{% url 'menu' %}">
-                            <button type="button" class="btn btn-primary d-inline-block btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
+                            <button type="button" class="btn btn-primary d-inline-block d-md-none btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
+                            <button type="button" class="btn btn-primary d-none d-md-inline-block btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
                         </a>
                     </div>
                 </section>
