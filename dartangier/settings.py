@@ -25,11 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Secret key
 SECRET_KEY = os.environ.get("SECRET_KEY")
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-bilalessafi-dartangierp-v49sa6b0ra5.ws.codeinstitute-ide.net'
+ALLOWED_HOSTS = ['8000-bilalessafi-dartangierp-bjz8u5exeeo.ws.codeinstitute-ide.net'
                 ,'.herokuapp.com']
 
 
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'dartangier.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!--Hero Section-->
+        <div class="hero-container container-fluid">
+            <div class="overlay">&nbsp;</div>
+            <div class="row">
+                <div class="col-12">
+                    <section class="hero-banner p-5 text-center">
+                        <h1 class="text-uppercase hero-title">Welcome to Dar Tangier!</h1>
+                        <h3 class="hero-text">Experience the rich flavors and warm hospitality of Morocco in the heart of Munich.</h3>
+                        <a href="{% url 'menu' %}">
+                            <button type="button" class="btn btn-primary btn-sand">View Menu<i class="fa-solid fa-bars"></i></button>
+                        </a>
+                        <a href="#signUpModal" data-bs-target="#signUpModal" data-bs-toggle="modal">
+                            <button type="button" class="btn btn-primary btn-sand">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        </a>
+                    </section>
+                </div>
+            </div>
+        </div>  
+        <!--/Hero Section-->
+        <!--Intro Section-->
+        <div class="intro-container container-fluid">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 my-5">
+                        <section class="intro-section">
+                            <h2 class="text-uppercase">Our Story</h2>
+                            <h4>Dar Tangier brings the essence of Moroccan cuisine and culture to your table. 
+                            Founded by a proud Moroccan from Tangier, our restaurant is a celebration of traditional flavors, 
+                            warm hospitality, and the rich heritage of Morocco. Each dish tells a story, inspired by the vibrant 
+                            culinary traditions of our homeland, inviting you to experience the warmth and authenticity of Moroccan dining.</h4>
+                            <div class="text-left">
+                                <a data-bs-target="#signUpModal" data-bs-toggle="modal">
+                                    <button type="button" class="btn btn-primary btn-mahagony">Book a Table</button>
+                                </a>
+                                <button type="button" class="btn btn-primary btn-mahagony" data-bs-toggle="modal" data-bs-target="#galleryModal">View Photos</button>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6 my-5 text-center">
+                        <img src="{% static 'assets/images/restaurant.avif' %}" alt="Restaurant" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Intro Section-->
+        <!-- Hidden Gallery Modal -->
+        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="galleryModalLabel">Our Restaurant Images</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img id="galleryImage" src="{% static 'assets/images/restaurant.avif' %}" class="img-fluid" alt="Restaurant Image" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="text-center mt-3">
+                            <button id="prevButton" class="btn btn-secondary">Previous</button>
+                            <button id="nextButton" class="btn btn-secondary">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hidden Gallery Modal -->
+        <!--Featured Dishes Section-->
+        <div class="featured-dishes-container container-fluid">
+            <div class="container">
+                <section class="featured-dishes my-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-uppercase text-center">Featured Dishes</h2>
+                            <h4 class="text-center">Discover our chef's selection of authentic Moroccan cuisine</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 my-5">
+                            <div class="media">
+                                <img src="{{ url_for('static', filename='assets/images/tagine.jpg') }}" alt="Image of Tagine" height="250" width="250">
+                                <div class="media-body">
+                                    <div class="featured-dish">
+                                        <h2 class="text-uppercase">Tagine</h2>
+                                        <h4>Slow-cooked savory stew with tender meat, fish or vegetables and aromatic spices.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 my-5">
+                            <div class="media">
+                                <img src="{{ url_for('static', filename='assets/images/couscous.avif') }}" alt="Image of Couscous" height="250" width="250">
+                                <div class="media-body">  
+                                    <div class="featured-dish">
+                                        <h2 class="text-uppercase">Couscous</h2>
+                                        <h4>Fluffy semolina topped with vegetables and succulent meats or vegetables.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-12 col-md-4 my-5">
+                            <div class="media">
+                                <img src="{{ url_for('static', filename='assets/images/pastilla.jpg') }}" alt="Image of Couscous" height="250" width="250">
+                                <div class="media-body">  
+                                    <div class="featured-dish">
+                                        <h2 class="text-uppercase">Pastilla</h2>
+                                        <h4>Sweet and savory pie with layers of crispy pastry and spiced filling.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="{% url 'menu' %}">
+                            <button type="button" class="btn btn-primary d-inline-block btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--/Featured Dishes Section-->
+        <!--Get in Touch Section-->
+        <div class=" container-fluid get-in-touch-container" id="contact">
+            <div class="container">
+                <section>
+                    <div class="row">
+                        <div class="col-12 my-5 get-in-touch">
+                            <h2 class="text-center">Get in Touch</h2>
+                            <h4 class="text-center">Have a question or want to make a reservation? We're here to help!</h4>
+                            <form id="contact-form" class="contact-form">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email" required>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" rows="3" maxlength="300" class="form-control" id="message" placeholder="Your message" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-sand">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--/Get in Touch Section-->
+    </main>
+{% endblock %}

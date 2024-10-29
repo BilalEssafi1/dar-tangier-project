@@ -1,0 +1,147 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Meta tags for search engines-->
+    <meta name="description" content="Experience the vibrant flavors and culture of Morocco at Dar Tangier, your premier destination for authentic Moroccan cuisine in Munich, Germany.">
+    <meta name="keywords" content="Dar Tangier, Moroccan restaurant, Tangier, Moroccan cuisine, traditional dishes, North Africa, Fes, Casablanca, Marrakesh, dining experience, exotic flavors">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!--Title-->
+    <title>Dar Tangier | Taste the flavors of Morocco</title>
+    <!--Title Logo-->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/dar-tangier-logo.jpg' %}">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <!-- Initialize EmailJS -->
+    <script type="text/javascript">
+        (function(){
+           emailjs.init({
+             publicKey: "IYIFNLsGz1yhScAQD",
+           });
+        })();
+     </script>
+</head>
+<body>
+    <main>
+
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-light navbar-expand-sm fixed-top custom-navbar px-3">
+            <a href="/" class="navbar-brand">
+                <img src="{% static 'assets/images/dar-tangier-logo.jpg' %}" alt="Logo" style="height: 40px; margin-right:8px">
+                Dar Tangier</a>
+            <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item mr-2 {{ 'nav-item-active' if request.endpoint == 'index' else '' }}"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item mr-2 {{ 'nav-item-active' if request.endpoint == 'menu' else '' }}"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+                    <li class="nav-item mr-2 {{ 'nav-item-active' if request.endpoint == 'location' else '' }}"><a class="nav-link" href="{% url 'location' %}">Location</a></li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign In / Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-primary ms-auto d-none d-sm-block btn-sand" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign In / Sign Up</a>
+        </nav>
+        <!--/Navigation Bar-->
+        
+    </main>
+    {% block content %}
+    {% endblock %}
+    <!--Footer Section-->
+    <footer class="footer d-flex justify-content-between align-items-center px-3">
+      <div class="footer-left">
+          <h5>Opening Hours</h5>
+          <p>Monday - Friday: 11 AM - 10 PM</p>
+          <p>Saturday - Sunday: 12 PM - 11 PM</p>
+      </div>
+      <div class="footer-middle text-center">
+          <h5>Follow Us</h5>
+          <ul class="social-icons">
+              <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube"></i></a></li>
+          </ul>
+          <p class="footer-text">© Dar Tangier. All Rights Reserved.</p>
+      </div>
+      <div class="footer-right text-end">
+          <h5>Address</h5>
+          <p>Leopoldstraße 50, 
+              80802 Munich, 
+              Germany</p>
+      </div>
+  </footer>
+  <!--/Footer Section-->
+
+    <!--Send Email JS-->
+    <script src="{% static 'assets/js/sendEmail.js' %}"></script>
+    <!--Sign Up Form-->
+    <div class="modal" tabindex="-1" id="signUpModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sign Up to Dar Tangier!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="repeatPassword" class="form-label">Repeat Password</label>
+                        <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Sign Up Form-->
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <!--/Bootstrap-->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!--/jQuery-->
+    <!--JS-->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <!--/JS-->
+    <!--Google Maps API Script-->
+    <script src="{% static 'assets/js/maps.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+    <!--/Google Maps API Script-->
+
+
+</body>
+
+</html>
