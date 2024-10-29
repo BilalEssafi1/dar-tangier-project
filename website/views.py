@@ -12,3 +12,7 @@ def menu(request):
 
 def location(request):
     return render(request, 'location.html')
+
+def location_view(request):
+    google_maps_api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
+    return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
