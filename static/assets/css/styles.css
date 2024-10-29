@@ -186,6 +186,7 @@ section {
 
     .intro-section {
         flex-direction: column; 
+    }
 }
 
 /* Style for the featured dish container */
@@ -213,8 +214,8 @@ section {
 
     .featured-dishes {
         flex-direction: column; 
+    }
 }
-
 /* Style for the Get in touch container */
 
 .get-in-touch-container {
@@ -306,4 +307,3 @@ footer li {
   .location {
     padding: 40px;
   }
-  
