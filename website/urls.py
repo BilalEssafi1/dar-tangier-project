@@ -5,5 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='index'),
     path('menu/', views.menu, name='menu'),
-    path('location/', views.location, name='location')
+    path('location/', views.location, name='location'),
+    path("accounts/", include("allauth.urls")),
+    path('summernote/', include('django_summernote.urls'))
     ]

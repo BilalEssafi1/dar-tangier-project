@@ -1,4 +1,8 @@
 {% load static %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,24 +39,51 @@
 
         <!--Navigation Bar-->
         <nav class="navbar navbar-light navbar-expand-sm fixed-top custom-navbar px-3">
-            <a href="/" class="navbar-brand">
-                <img src="{% static 'assets/images/dar-tangier-logo.jpg' %}" alt="Logo" style="height: 40px; margin-right:8px">
-                Dar Tangier</a>
-            <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item mr-2 {% if request.path == '/' %}nav-item-active{% endif %}"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                    <li class="nav-item mr-2 {% if request.path == '/menu/' %}nav-item-active{% endif %}"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
-                    <li class="nav-item mr-2 {% if request.path == '/location/' %}nav-item-active{% endif %}"><a class="nav-link" href="{% url 'location' %}">Location</a></li>
-                    <li class="nav-item d-sm-none">
-                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign In / Sign Up</a>
-                    </li>
-                </ul>
-            </div>
-            <a class="btn btn-primary ms-auto d-none d-sm-block btn-sand" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign In / Sign Up</a>
-        </nav>
+          <a href="/" class="navbar-brand">
+              <img src="{% static 'assets/images/dar-tangier-logo.jpg' %}" alt="Logo" style="height: 40px; margin-right:8px">
+              Dar Tangier
+          </a>
+          <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item {% if request.path == '/' %}nav-item-active{% endif %}">
+                      <a class="nav-link" href="{% url 'index' %}">Home</a>
+                  </li>
+                  <li class="nav-item {% if request.path == '/menu/' %}nav-item-active{% endif %}">
+                      <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                  </li>
+                  <li class="nav-item {% if request.path == '/location/' %}nav-item-active{% endif %}">
+                      <a class="nav-link" href="{% url 'location' %}">Location</a>
+                  </li>
+      
+                  <!-- Authentication Links for Small Screens (dropdown menu) -->
+                  {% if user.is_authenticated %}
+                      <li class="nav-item d-block d-sm-none">
+                          <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                      </li>
+                  {% else %}
+                      <li class="nav-item d-block d-sm-none">
+                          <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                      </li>
+                      <li class="nav-item d-block d-sm-none">
+                          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                      </li>
+                  {% endif %}
+              </ul>
+      
+              <!-- Authentication Buttons for Larger Screens -->
+              <div class="ms-auto d-none d-sm-flex">
+                  {% if user.is_authenticated %}
+                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_logout' %}">Logout</a>
+                  {% else %}
+                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_signup' %}">Register</a>
+                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_login' %}">Login</a>
+                  {% endif %}
+              </div>
+          </div>
+      </nav>
         <!--/Navigation Bar-->
         
     </main>
@@ -86,45 +117,6 @@
 
     <!--Send Email JS-->
     <script src="{% static 'assets/js/sendEmail.js' %}"></script>
-    <!--Sign Up Form-->
-    <div class="modal" tabindex="-1" id="signUpModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Sign Up to Dar Tangier!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="repeatPassword" class="form-label">Repeat Password</label>
-                        <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/Sign Up Form-->
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
