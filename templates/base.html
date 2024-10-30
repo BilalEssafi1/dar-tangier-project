@@ -39,81 +39,82 @@
 
         <!--Navigation Bar-->
         <nav class="navbar navbar-light navbar-expand-sm fixed-top custom-navbar px-3">
-          <a href="/" class="navbar-brand">
-              <img src="{% static 'assets/images/dar-tangier-logo.jpg' %}" alt="Logo" style="height: 40px; margin-right:8px">
-              Dar Tangier
-          </a>
-          <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav me-auto">
-                  <li class="nav-item {% if request.path == '/' %}nav-item-active{% endif %}">
-                      <a class="nav-link" href="{% url 'index' %}">Home</a>
-                  </li>
-                  <li class="nav-item {% if request.path == '/menu/' %}nav-item-active{% endif %}">
-                      <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                  </li>
-                  <li class="nav-item {% if request.path == '/location/' %}nav-item-active{% endif %}">
-                      <a class="nav-link" href="{% url 'location' %}">Location</a>
-                  </li>
+            <a href="/" class="navbar-brand">
+                <img src="{% static 'assets/images/dar-tangier-logo.jpg' %}" alt="Logo" style="height: 40px; margin-right:8px">
+                Dar Tangier
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item {% if request.path == '/' %}nav-item-active{% endif %}">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/menu/' %}nav-item-active{% endif %}">
+                        <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/location/' %}nav-item-active{% endif %}">
+                        <a class="nav-link" href="{% url 'location' %}">Location</a>
+                    </li>
       
                   <!-- Authentication Links for Small Screens (dropdown menu) -->
                   {% if user.is_authenticated %}
-                      <li class="nav-item d-block d-sm-none">
-                          <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                      </li>
+                    <li class="nav-item d-block d-sm-none">
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <p class="mb-0 ms-2 nav-link" style="display: inline;">You are logged in as <strong>{{ user.username }}</strong></p>
+                     </li>
                   {% else %}
-                      <li class="nav-item d-block d-sm-none">
-                          <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                      </li>
-                      <li class="nav-item d-block d-sm-none">
-                          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                      </li>
+                    <li class="nav-item d-block d-sm-none">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item d-block d-sm-none">
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
                   {% endif %}
-              </ul>
-      
-              <!-- Authentication Buttons for Larger Screens -->
-              <div class="ms-auto d-none d-sm-flex">
-                  {% if user.is_authenticated %}
-                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_logout' %}">Logout</a>
-                  {% else %}
-                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_signup' %}">Register</a>
-                      <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_login' %}">Login</a>
-                  {% endif %}
-              </div>
-          </div>
-      </nav>
+                </ul>
+                <!-- Authentication Buttons for Larger Screens -->
+                <div class="ms-auto d-none d-sm-flex align-items-center">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_logout' %}">Logout</a>
+                    <p class="mb-0 ms-2 nav-link">You are logged in as <strong>{{ user.username }}</strong></p>
+                    {% else %}
+                    <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_signup' %}">Register</a>
+                    <a class="btn btn-primary btn-sand ms-2" href="{% url 'account_login' %}">Login</a>
+                    {% endif %}
+                </div>
+            </div>  
+        </nav>
         <!--/Navigation Bar-->
-        
+
     </main>
     {% block content %}
     {% endblock %}
     <!--Footer Section-->
     <footer class="footer d-flex justify-content-between align-items-center px-3">
-      <div class="footer-left">
-          <h5>Opening Hours</h5>
-          <p>Monday - Friday: 11 AM - 10 PM</p>
-          <p>Saturday - Sunday: 12 PM - 11 PM</p>
-      </div>
-      <div class="footer-middle text-center">
-          <h5>Follow Us</h5>
-          <ul class="social-icons">
-              <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a></li>
-              <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube"></i></a></li>
-          </ul>
-          <p class="footer-text">© Dar Tangier. All Rights Reserved.</p>
-      </div>
-      <div class="footer-right text-end">
-          <h5>Address</h5>
-          <p>Leopoldstraße 50, 
-              80802 Munich, 
-              Germany</p>
-      </div>
-  </footer>
-  <!--/Footer Section-->
+        <div class="footer-left">
+            <h5>Opening Hours</h5>
+            <p>Monday - Friday: 11 AM - 10 PM</p>
+            <p>Saturday - Sunday: 12 PM - 11 PM</p>
+        </div>
+        <div class="footer-middle text-center">
+            <h5>Follow Us</h5>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+            <p class="footer-text">© Dar Tangier. All Rights Reserved.</p>
+        </div>
+        <div class="footer-right text-end">
+            <h5>Address</h5>
+            <p>Leopoldstraße 50, 
+            80802 Munich, 
+            Germany</p>
+        </div>
+    </footer>
+    <!--/Footer Section-->
 
     <!--Send Email JS-->
     <script src="{% static 'assets/js/sendEmail.js' %}"></script>
