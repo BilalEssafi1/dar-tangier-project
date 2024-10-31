@@ -37,13 +37,19 @@ class Reservation(models.Model):
         # Check guest count does not exceed 8
         if self.guests > 8:
             raise ValidationError("A reservation can only be made for up to 8 guests.")
+
         # Check if the reservation date is in the past
         if self.reservation_date < timezone.now().date():
             raise ValidationError("Reservation date cannot be in the past.")
+        
         # Ensure reservation is made within business hours (10 AM to 11PM)
-        if not (timezone.datetime.strptime('10:00', '%H:%M').time() <= self.start_time <= timezone.datetime.strptime('23:00', '%H:%M').time()):
+        if self.start_time is None or not (timezone.datetime.strptime('10:00', '%H:%M').time() <= self.start_time <= timezone.datetime.strptime('23:00', '%H:%M').time()):
             raise ValidationError("Reservations must be made between 10 AM and 11PM.")
         
+        # Skip overlap check if table, start_time, or end_time are not set
+        if not self.table or not self.start_time or not self.end_time:
+            return
+
         # Check for overlapping reservations on the same table
         overlapping_reservations = Reservation.objects.filter(
             table=self.table,
@@ -65,6 +71,10 @@ class Reservation(models.Model):
             raise ValidationError("This restaurant has reached its maximum capacity for this time slot.")
 
     def save(self, *args, **kwargs):
+        # Set reservation_time if it's intended to respresent the start_time
+        if not self.reservation_time:
+            self.reservation_time = self.start_time
+        
         # Automatically assign a random table based on availability and guest capacity
         if not self.table_id:
             available_tables = Table.objects.filter(is_active=True, capacity__gte=self.guests)

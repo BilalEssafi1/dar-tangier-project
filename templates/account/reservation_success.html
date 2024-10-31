@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Reservation Successful" %}{% endblock %}
+
+{% block content %}
+<div class="intro-container d-flex align-items-center justify-content-center vh-100">
+    <div class="text-center" style="max-width: 400px; width: 100%;">
+        <h1 class="text-uppercase intro-section">{% trans "Reservation Successful!" %}</h1>
+        <p>{% trans "Thank you for your reservation at Dar Tangier! We look forward to serving you soon." %}</p>
+        <a href="{% url 'index' %}" class="btn btn-primary btn-mahagony mt-4">{% trans "Return Home" %}</a>
+    </div>
+</div>
+{% endblock %}

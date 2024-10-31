@@ -90,6 +90,39 @@
     </main>
     {% block content %}
     {% endblock %}
+
+    <!-- Reservation Modal -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Reservation Form</h5> <!-- Updated to "Reservation Form" -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'make_reservation' %}" class="contact-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="reservation_date" class="form-label">Reservation Date</label>
+                            {{ form.reservation_date }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="start_time" class="form-label">Reservation Time</label>
+                            {{ form.start_time }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="guests" class="form-label">Number of Guests</label>
+                            {{ form.guests }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-sand">Submit Reservation</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Reservation Modal -->
     <!--Footer Section-->
     <footer class="footer d-flex justify-content-between align-items-center px-3">
         <div class="footer-left">
