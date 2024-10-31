@@ -1,8 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+import random
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from datetime import timedelta
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
 
 # Create your models here.
 
@@ -11,6 +15,13 @@ class Table(models.Model):
     table_number = models.IntegerField(unique=True)
     capacity = models.IntegerField()
     is_active = models.BooleanField(default=True)
+
+    def save(self, *args, **kwargs):
+        # Ensure only a maximum of 10 tables are available
+        if self.is_active and Table.objects.filter(is_active=True).count() >= 10:
+            raise ValidationError("Cannot have more than 10 active tabels.")
+        
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Table {self.table_number} (Capacity: {self.capacity})"
