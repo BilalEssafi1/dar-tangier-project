@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block head_title %}{% trans "Manage Reservations" %}{% endblock %}
+
+{% block content %}
+<div class="intro-container d-flex align-items-center justify-content-center vh-100">
+    <div class="text-center" style="max-width: 600px; width: 100%;">
+        <h2 class="text-uppercase intro-section">{% trans "Manage Reservations" %}</h2>
+        <table class="table table-bordered mt-4">
+            <thead class="thead-light">
+                <tr>
+                    <th>{% trans "Date" %}</th>
+                    <th>{% trans "Time" %}</th>
+                    <th>{% trans "Guests" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation.reservation_date }}</td>
+                        <td>{{ reservation.reservation_time }}</td>
+                        <td>{{ reservation.guests }}</td>
+                        <td>
+                            <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-sm btn-primary">{% trans "Edit" %}</a>
+                            <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">{% trans "No reservations found." %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-4">
+            <a class="btn btn-secondary btn-mahagony" href="{% url 'index' %}">{% trans "Back to Home" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

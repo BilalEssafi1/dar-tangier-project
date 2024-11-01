@@ -4,6 +4,10 @@ from django.views import generic
 from .models import Table, Reservation
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib import messages
 
 # Create your views here.
 
@@ -21,6 +25,7 @@ def location_view(request):
     google_maps_api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
     return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
 
+# Make a reservation
 @login_required
 def make_reservation(request):
     if request.method == 'POST':
@@ -35,3 +40,30 @@ def make_reservation(request):
 
 def reservation_success(request):
     return render(request, 'account/reservation_success.html') 
+
+# Manage reservations
+@login_required
+def manage_reservations(request):
+    reservations = Reservation.objects.filter(user=request.user)
+    return render(request, 'account/manage_reservations.html', {'reservations': reservations})
+
+# Update a reservation 
+@login_required
+def update_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, id=reservation_id, user=request.user)
+    form = ReservationForm(request.POST or None, instance=reservation, user=request.user)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Reservation updated successfully!")
+        return HttpResponseRedirect(reverse('reservation_success'))
+    return render(request, 'account/reservation_update.html', {'form': form})
+
+# Delete a reservation
+@login_required
+def delete_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, id=reservation_id, user=request.user)
+    if request.method == 'POST':
+        reservation.delete()
+        messages.success(request, "Reservation deleted successfully.")
+        return HttpResponseRedirect(reverse('index'))
+    return render(request, 'account/reservation_confirm_delete.html', {'reservation': reservation})
