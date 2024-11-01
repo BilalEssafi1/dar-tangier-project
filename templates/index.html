@@ -13,7 +13,6 @@
                             <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">View Menu<i class="fa-solid fa-bars"></i></button>
                             <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">View Menu<i class="fa-solid fa-bars"></i></button>
                         </a>
-
                         {% if user.is_authenticated %}
                         <!--Button to open reservation form-->
                         <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal">
@@ -21,7 +20,7 @@
                             <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
                         </a>
                         {% else %}
-                        <a href="#signUpModal" data-bs-target="#signUpModal" data-bs-toggle="modal">
+                        <a href="{% url 'account_login' %}">
                             <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
                             <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
                         </a>
@@ -48,7 +47,7 @@
                                         <button type="button" class="btn btn-primary btn-mahagony">Book a Table</button>
                                     </a>
                                 {% else %}
-                                    <a data-bs-target="#signUpModal" data-bs-toggle="modal">
+                                        <a href="{% url 'account_login' %}">
                                         <button type="button" class="btn btn-primary btn-mahagony">Book a Table</button>
                                     </a>
                                 {% endif %}

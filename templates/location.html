@@ -9,9 +9,18 @@
                     <section class="hero-banner p-5 text-center">
                         <h1 class="text-uppercase hero-title">Location</h1>
                         <h3 class="hero-text">Where you can find us.</h3>
-                        <a href="#signUpModal" data-bs-target="#signUpModal" data-bs-toggle="modal">
-                            <button type="button" class="btn btn-primary btn-sand">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        {% if user.is_authenticated %}
+                        <!--Button to open reservation form-->
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal">
+                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
                         </a>
+                        {% else %}
+                        <a href="{% url 'account_login' %}">
+                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        </a>
+                        {% endif %}
                     </section>
                 </div>
             </div>
