@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="intro-container d-flex align-items-center justify-content-center vh-100">
+    <div class="text-center" style="max-width: 400px; width: 100%;">
+        <h1 class="text-uppercase intro-section">{% trans "My Profile" %}</h1>
+        
+        <!-- Profile Update Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <button type="submit" class="btn btn-primary btn-mahagony">{% trans "Save Changes" %}</button>
+        </form>
+
+        <hr class="my-4">
+
+        <!-- Password Change Form -->
+        <h2>{% trans "Change Password" %}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ password_form.as_p }}
+            <button type="submit" class="btn btn-primary btn-mahagony">{% trans "Update Password" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

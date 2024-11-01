@@ -2,12 +2,13 @@ import os
 from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Table, Reservation
-from .forms import ReservationForm
+from .forms import ReservationForm, UserUpdateForm, CustomPasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.forms import UserChangeForm
 
 # Create your views here.
 
@@ -67,3 +68,28 @@ def delete_reservation(request, reservation_id):
         messages.success(request, "Reservation deleted successfully.")
         return HttpResponseRedirect(reverse('index'))
     return render(request, 'account/reservation_confirm_delete.html', {'reservation': reservation})
+
+# Update User Information
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        password_form = CustomPasswordChangeForm(user=request.user, data=request.POST)
+        
+        if user_form.is_valid():
+            user_form.save()
+            
+        if password_form.is_valid():
+            password_form.save()
+            update_session_auth_hash(request, password_form.user) 
+            return redirect('profile') 
+
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        password_form = CustomPasswordChangeForm(user=request.user)
+
+    return render(request, 'account/profile.html', {
+        'user_form': user_form,
+        'password_form': password_form,
+    })
+

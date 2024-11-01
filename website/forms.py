@@ -1,7 +1,11 @@
 from .models import Reservation, Table, TIME_SLOTS
 from django import forms
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
+from django.core.validators import MaxLengthValidator
 
+# Form to handle reservation creation and editing
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
@@ -30,3 +34,18 @@ class ReservationForm(forms.ModelForm):
         if commit:
             reservation.save()
         return reservation
+
+# Form for updating user details like username, first name, lastname and email
+class UserUpdateForm(forms.ModelForm):
+    username = forms.CharField(
+        max_length=20,
+        validators=[MaxLengthValidator(20)],
+        required=True 
+    )
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+# Form for allowing to change password
+class CustomPasswordChangeForm(PasswordChangeForm):
+    pass
