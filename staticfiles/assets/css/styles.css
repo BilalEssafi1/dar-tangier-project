@@ -113,7 +113,7 @@ section {
 
 .hero-container {
     height: auto;
-    min-height: 50vh;
+    min-height: 60vh;
     background: url('/static/assets/images/hero-image.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -159,7 +159,7 @@ section {
 
 .intro-container {
     height: auto;
-    min-height: 50vh;
+    min-height: 60vh;
     background-color: rgb(255 247 237);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -196,7 +196,7 @@ section {
 
 .featured-dishes-container {
     height: auto;
-    min-height: 55vh;
+    min-height: 85vh;
     background-color: rgb(255 237 213);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -223,7 +223,7 @@ section {
 
 .get-in-touch-container {
     height: auto;
-    min-height: 45vh;
+    min-height: 70vh;
     background-color: rgb(154 52 18);
     -webkit-background-size: cover;
     -moz-background-size: cover;
