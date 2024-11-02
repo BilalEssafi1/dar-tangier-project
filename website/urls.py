@@ -12,6 +12,7 @@ urlpatterns = [
     path('reservation/<int:reservation_id>/update/', views.update_reservation, name='update_reservation'),
     path('reservation/<int:reservation_id>/delete/', views.delete_reservation, name='delete_reservation'),
     path('profile/', views.profile, name='profile'),
+    path("profile/delete-account/", views.delete_account, name="delete_account"),
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls'))
     ]

@@ -179,12 +179,16 @@ section {
 }
 
 @media (max-width: 768px) {
-    .intro-container {
+    .intro-container, 
+    .get-in-touch-container, 
+    .featured-dishes {
         min-height: auto; 
         height: auto; 
     }
 
-    .intro-section {
+    .intro-container, 
+    .get-in-touch-container, 
+    .featured-dishes {
         flex-direction: column; 
     }
 }
@@ -206,16 +210,7 @@ section {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .featured-dishes-container {
-        min-height: auto; 
-        height: auto; 
-    }
 
-    .featured-dishes {
-        flex-direction: column; 
-    }
-}
 /* Style for the Get in touch container */
 
 .get-in-touch-container {

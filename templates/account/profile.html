@@ -16,12 +16,19 @@
         <hr class="my-4">
 
         <!-- Password Change Form -->
-        <h2>{% trans "Change Password" %}</h2>
+        <h2 class="text-uppercase intro-section">{% trans "Change Password" %}</h2>
         <form method="POST">
             {% csrf_token %}
             {{ password_form.as_p }}
             <button type="submit" class="btn btn-primary btn-mahagony">{% trans "Update Password" %}</button>
         </form>
+
+        <hr class="my-4">
+
+        <!-- Delete User Account -->
+        <h2 class="text-uppercase intro-section">{% trans "Delete Account" %}</h2>
+        <p>{% trans "Permanently delete your account and all associated data." %}</p>
+        <a href="{% url 'delete_account' %}" class="btn btn-danger">{% trans "Delete Account" %}</a>
     </div>
 </div>
 {% endblock %}

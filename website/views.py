@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -93,3 +94,13 @@ def profile(request):
         'password_form': password_form,
     })
 
+# Delete Account
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        user = request.user
+        logout(request)
+        user.delete() 
+        messages.success(request, "Your account has been deleted.")
+        return redirect("index") 
+    return render(request, "account/confirm_delete_account.html")
