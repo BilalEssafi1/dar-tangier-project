@@ -1,6 +1,9 @@
 from django.urls import include, path
 from django.contrib import admin
 from . import views
+from django.conf.urls import handler404
+
+handler404 = views.custom_404
 
 urlpatterns = [
     path('', views.home, name='index'),

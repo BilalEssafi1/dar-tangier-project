@@ -31,8 +31,10 @@ GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-bilalessafi-dartangierp-bjz8u5exeeo.ws.codeinstitute-ide.net'
-                ,'.herokuapp.com']
+ALLOWED_HOSTS = ['8000-bilalessafi-dartangierp-bjz8u5exeeo.ws.codeinstitute-ide.net',
+                '.herokuapp.com',
+                'localhost',
+                '127.0.0.1']
 
 
 # Application definition

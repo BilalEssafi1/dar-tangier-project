@@ -27,6 +27,9 @@ def location_view(request):
     google_maps_api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
     return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
 
+def custom_404(request, exception):
+    print("Custom 404 handler called")
+    return render(request, 'account/404.html', status=404)
 # Make a reservation
 @login_required
 def make_reservation(request):
