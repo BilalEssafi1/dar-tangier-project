@@ -83,6 +83,9 @@ button i {
     border: none;
 }
 
+a {
+    text-decoration: none; 
+}
 /* Spacing */
 section {
     margin-top: 30px;
@@ -110,7 +113,7 @@ section {
 
 .hero-container {
     height: auto;
-    min-height: 50vh;
+    min-height: 60vh;
     background: url('/static/assets/images/hero-image.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -156,7 +159,7 @@ section {
 
 .intro-container {
     height: auto;
-    min-height: 50vh;
+    min-height: 65vh;
     background-color: rgb(255 247 237);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -179,16 +182,12 @@ section {
 }
 
 @media (max-width: 768px) {
-    .intro-container, 
-    .get-in-touch-container, 
-    .featured-dishes {
+    .intro-container {
         min-height: auto; 
         height: auto; 
     }
 
-    .intro-container, 
-    .get-in-touch-container, 
-    .featured-dishes {
+    .intro-section {
         flex-direction: column; 
     }
 }
@@ -197,7 +196,7 @@ section {
 
 .featured-dishes-container {
     height: auto;
-    min-height: 55vh;
+    min-height: 90vh;
     background-color: rgb(255 237 213);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -210,12 +209,21 @@ section {
     margin: 0;
 }
 
+@media (max-width: 768px) {
+    .featured-dishes-container {
+        min-height: auto; 
+        height: auto; 
+    }
 
+    .featured-dishes {
+        flex-direction: column; 
+    }
+}
 /* Style for the Get in touch container */
 
 .get-in-touch-container {
     height: auto;
-    min-height: 45vh;
+    min-height: 70vh;
     background-color: rgb(154 52 18);
     -webkit-background-size: cover;
     -moz-background-size: cover;

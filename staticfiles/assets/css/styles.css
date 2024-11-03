@@ -159,7 +159,7 @@ section {
 
 .intro-container {
     height: auto;
-    min-height: 60vh;
+    min-height: 65vh;
     background-color: rgb(255 247 237);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -196,7 +196,7 @@ section {
 
 .featured-dishes-container {
     height: auto;
-    min-height: 85vh;
+    min-height: 90vh;
     background-color: rgb(255 237 213);
     -webkit-background-size: cover;
     -moz-background-size: cover;
