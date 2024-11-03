@@ -6,6 +6,7 @@ from .forms import ReservationForm, UserUpdateForm, CustomPasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.auth import update_session_auth_hash
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm

@@ -1,14 +1,40 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Reservation Successful" %}{% endblock %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 400px; width: 100%;">
-        <h1 class="text-uppercase intro-section">{% trans "Reservation Successful!" %}</h1>
-        <p>{% trans "Thank you for your reservation at Dar Tangier! We look forward to serving you soon." %}</p>
-        <a href="{% url 'index' %}" class="btn btn-primary btn-mahagony mt-4">{% trans "Return Home" %}</a>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Reservation Successful!" %}</h1>
+                    <h3 class="hero-text">{% trans "Thank you for your reservation at Dar Tangier!" %}</h3>
+                </section>
+            </div>
+        </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!-- Successful Reservation Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <p>{% trans "We look forward to serving you soon." %}</p>
+                        <div class="text-center">
+                            <a href="{% url 'index' %}" class="btn btn-primary btn-mahagony mt-4">
+                                {% trans "Return Home" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Successful Reservation Section-->
 {% endblock %}

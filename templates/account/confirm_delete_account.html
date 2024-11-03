@@ -1,18 +1,44 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 400px; width: 100%;">
-        <h2 class="text-uppercase intro-section">{% trans "Confirm Account Deletion" %}</h2>
-        <p>{% trans "Are you sure you want to delete your account? This action cannot be undone." %}</p>
-        <form method="post">
-            {% csrf_token %}
-            <div class="text-center">
-                <button type="submit" class="btn btn-danger btn-mahagony mx-2">{% trans "Yes, Delete My Account" %}</button>
-                <a href="{% url 'profile' %}" class="btn btn-secondary btn-mahagony mx-2">{% trans "Cancel" %}</a>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Confirm Account Deletion" %}</h1>
+                    <h3 class="hero-text">{% trans "This action cannot be undone." %}</h3>
+                </section>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!-- Confirm Account Deletion Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <p>{% trans "Are you sure you want to delete your account? This action cannot be undone." %}</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-danger btn-mahagony mx-2">
+                                    {% trans "Yes, Delete My Account" %}
+                                </button>
+                                <a href="{% url 'profile' %}" class="btn btn-secondary btn-mahagony mx-2">
+                                    {% trans "Cancel" %}
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Confirm Account Deletion Section-->
 {% endblock %}

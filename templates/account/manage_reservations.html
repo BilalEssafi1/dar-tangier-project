@@ -1,41 +1,69 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
+
 {% block head_title %}{% trans "Manage Reservations" %}{% endblock %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 600px; width: 100%;">
-        <h2 class="text-uppercase intro-section">{% trans "Manage Reservations" %}</h2>
-        <table class="table table-bordered mt-4">
-            <thead class="thead-light">
-                <tr>
-                    <th>{% trans "Date" %}</th>
-                    <th>{% trans "Time" %}</th>
-                    <th>{% trans "Guests" %}</th>
-                    <th>{% trans "Actions" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for reservation in reservations %}
-                    <tr>
-                        <td>{{ reservation.reservation_date }}</td>
-                        <td>{{ reservation.reservation_time }}</td>
-                        <td>{{ reservation.guests }}</td>
-                        <td>
-                            <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-sm btn-primary">{% trans "Edit" %}</a>
-                            <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
-                        </td>
-                    </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="4">{% trans "No reservations found." %}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <div class="text-center mt-4">
-            <a class="btn btn-secondary btn-mahagony" href="{% url 'index' %}">{% trans "Back to Home" %}</a>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Manage Reservations" %}</h1>
+                    <h3 class="hero-text">{% trans "View and manage your reservations below" %}</h3>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!-- Reservations Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Your Reservations" %}</h3>
+                        <table class="table table-bordered mt-4">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>{% trans "Date" %}</th>
+                                    <th>{% trans "Time" %}</th>
+                                    <th>{% trans "Guests" %}</th>
+                                    <th>{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reservation in reservations %}
+                                    <tr>
+                                        <td>{{ reservation.reservation_date }}</td>
+                                        <td>{{ reservation.reservation_time }}</td>
+                                        <td>{{ reservation.guests }}</td>
+                                        <td>
+                                            <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-sm btn-primary">
+                                                {% trans "Edit" %}
+                                            </a>
+                                            <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-sm btn-danger">
+                                                {% trans "Delete" %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">{% trans "No reservations found." %}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="text-center mt-4">
+                            <a class="btn btn-secondary btn-mahagony" href="{% url 'index' %}">{% trans "Back to Home" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Reservations Section-->
 {% endblock %}

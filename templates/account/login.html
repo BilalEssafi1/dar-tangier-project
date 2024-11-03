@@ -1,27 +1,56 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
+
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 400px; width: 100%;">
-        <h1 class="text-uppercase intro-section">{% trans "Sign In" %}</h1>
-        <p>{% trans "Welcome back to Dar Tangier! To make a reservation or view your account, please sign in. If you don't have an account, " %}
-           <a class="link" href="{{ signup_url }}">{% trans "sign up here." %}</a></p>
-        <form class="login" method="POST" action="{% url 'account_login' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <!-- Forgot password link -->
-            <p class="text-center mt-3">
-                <a href="{% url 'account_reset_password' %}" class="link">{% trans "Forgot password?" %}</a>
-            </p>
-            <div class="text-center">
-                <button class="btn btn-primary btn-mahagony" type="submit">{% trans "Sign In" %}</button>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Sign In" %}</h1>
+                    <h3 class="hero-text">{% trans "Welcome back to Dar Tangier! Please sign in to continue." %}</h3>
+                </section>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!-- Sign In Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Sign In" %}</h3>
+                        <p class="text-center mb-4">
+                            {% trans "If you don't have an account, " %}
+                            <a class="link" href="{{ signup_url }}">{% trans "sign up here." %}</a>
+                        </p>
+                        <!-- Sign In Form -->
+                        <form class="login" method="POST" action="{% url 'account_login' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <!-- Forgot Password Link -->
+                            <p class="text-center mt-3">
+                                <a href="{% url 'account_reset_password' %}" class="link">{% trans "Forgot password?" %}</a>
+                            </p>
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-mahagony" type="submit">
+                                    {% trans "Sign In" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Sign In Section-->
 {% endblock %}

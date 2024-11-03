@@ -1,22 +1,46 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 400px; width: 100%;">
-        <h1 class="text-uppercase intro-section">{% trans "Sign Out" %}</h1>
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        <form method="post" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <div class="text-center">
-                <button class="btn btn-primary btn-mahagony" type="submit">{% trans 'Sign Out' %}</button>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Sign Out" %}</h1>
+                    <h3 class="hero-text">{% trans "Are you sure you want to sign out?" %}</h3>
+                </section>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!-- Sign Out Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <p>{% trans 'Please confirm your action below.' %}</p>
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-mahagony" type="submit">
+                                    {% trans 'Sign Out' %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Sign Out Section-->
 {% endblock %}

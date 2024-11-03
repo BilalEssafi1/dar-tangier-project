@@ -1,34 +1,77 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
-<div class="intro-container d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center" style="max-width: 400px; width: 100%;">
-        <h1 class="text-uppercase intro-section">{% trans "My Profile" %}</h1>
-        
-        <!-- Profile Update Form -->
-        <form method="POST">
-            {% csrf_token %}
-            {{ user_form.as_p }}
-            <button type="submit" class="btn btn-primary btn-mahagony">{% trans "Save Changes" %}</button>
-        </form>
-
-        <hr class="my-4">
-
-        <!-- Password Change Form -->
-        <h2 class="text-uppercase intro-section">{% trans "Change Password" %}</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ password_form.as_p }}
-            <button type="submit" class="btn btn-primary btn-mahagony">{% trans "Update Password" %}</button>
-        </form>
-
-        <hr class="my-4">
-
-        <!-- Delete User Account -->
-        <h2 class="text-uppercase intro-section">{% trans "Delete Account" %}</h2>
-        <p>{% trans "Permanently delete your account and all associated data." %}</p>
-        <a href="{% url 'delete_account' %}" class="btn btn-danger">{% trans "Delete Account" %}</a>
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "My Profile" %}</h1>
+                    <h3 class="hero-text">{% trans "Manage your account settings and preferences" %}</h3>
+                </section>
+            </div>
+        </div>
     </div>
-</div>
+    <!--/Hero Section-->
+
+    <!--Profile Section-->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Profile Information" %}</h3>
+                        <!-- Profile Update Form -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                {{ user_form.as_p }}
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-mahagony">
+                                    {% trans "Save Changes" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Change Password" %}</h3>
+                        <!-- Password Change Form -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                {{ password_form.as_p }}
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-mahagony">
+                                    {% trans "Update Password" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Delete Account" %}</h3>
+                        <p class="text-center mb-4">
+                            {% trans "Permanently delete your account and all associated data." %}
+                        </p>
+                        <div class="text-center">
+                            <a href="{% url 'delete_account' %}" class="btn btn-danger">
+                                {% trans "Delete Account" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Profile Section-->
 {% endblock %}
