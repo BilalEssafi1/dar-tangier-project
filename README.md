@@ -72,13 +72,18 @@ These wirframes helped outline essential elements and streamline the design proc
 ![Screenshot wireframe profile page large screen](static/assets/images/readme/profile-small-screen.png)
 
 
-
-
-
-
-
-
 # Agile Development
+## Overview
+This project followed Agile methodology with iterative development cycles, feature prioritization, and task tracking. Development tasks were organized and tracked with GiHub Projects, which ensured the timely delivery of essenntial functionalities. Each spring was dedicated to the development and refinement of specific feature sets, including the homepage design, menu display, user registration, and reservation management. 
+
+I initiated this project with a clear intent to streamline workflow and effectively manage the expected workload. After outlining the major epics, I systematically decomposed them into actionable user stories and smaller tasks. This approach not only enhanced my ability to monitor progress, but also served as a motivational framework to complete the project on schedule. In addition to the user stories, I created distinct issues for each module of the README.md file, further clarifying objectives and ensuring all components were addressed. 
+
+For a comprehensive overview of the project's progress and workflow, please refer to [this Kanban page](https://github.com/users/BilalEssafi1/projects/2)
+
+## User Stories
+
+
+
 
 # Features Implemented
 
