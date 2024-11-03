@@ -48,11 +48,35 @@ To plan the layout and functionality of each page, wireframes were created with 
 These wirframes helped outline essential elements and streamline the design process by providing a clear structure for key components like the homepage, menu, reservation system and User profile Management on different screen sizes. 
 
 ### Large and medium screens
-![Screenshot wireframe homepage](static/assets/images/readme/homepage-large-screen.png)
+![Screenshot wireframe homepage large screen](static/assets/images/readme/homepage-large-screen.png)
 
-![Screenshot wireframe menu page](static/assets/images/readme/menu-large-screen.png)
+![Screenshot wireframe menu page large screen](static/assets/images/readme/menu-large-screen.png)
 
-![Screenshot wireframe location page](static/assets/images/readme/menu-large-screen.png)
+![Screenshot wireframe location page large screen](static/assets/images/readme/location-large-screen.png)
+
+![Screenshot wireframe manage-reservation page large screen](static/assets/images/readme/manage-reservations-large-screen.png)
+
+![Screenshot wireframe profile page large screen](static/assets/images/readme/profile-large-screen.png)
+
+
+### Small screens
+
+![Screenshot wireframe homepage small screen](static/assets/images/readme/homepage-small-screen.png)
+
+![Screenshot wireframe menu page small screen](static/assets/images/readme/menu-small-screen.png)
+
+![Screenshot wireframe location page small screen](static/assets/images/readme/location-small-screen.png)
+
+![Screenshot wireframe manage-reservation page small screen](static/assets/images/readme/manage-reservations-small-screen.png)
+
+![Screenshot wireframe profile page large screen](static/assets/images/readme/profile-small-screen.png)
+
+
+
+
+
+
+
 
 # Agile Development
 

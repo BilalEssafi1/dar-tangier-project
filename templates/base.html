@@ -61,8 +61,8 @@
                   <!-- Authentication Links for Small Screens (dropdown menu) -->
                   {% if user.is_authenticated %}
                     <li class="nav-item d-block d-sm-none">
-                        <a class="btn btn-primary btn-sand ms-2" href="{% url 'manage_reservations' %}">Manage Reservation</a>
-                        <a class="btn btn-primary btn-sand ms-2" href="{% url 'profile' %}">My Profile</a>
+                        <a class="nav-link" href="{% url 'manage_reservations' %}">Manage Reservation</a>
+                        <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                         <p class="mb-0 ms-2 nav-link" style="display: inline;">You are logged in as <strong>{{ user.username }}</strong></p>
                      </li>
