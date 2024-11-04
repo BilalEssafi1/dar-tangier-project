@@ -5,15 +5,13 @@ View the live project here
 Dar Tangier is a Moroccan-themed, responsive restaurant website with a registration and reservation system for customers to book tables, view the menu, and get in touch with the restaurant. This project was developed as part of the Code Institute's fourth Project Portfolio
 
 # Table of Contents
-UX(#UX)
-Agile Development
-Features Implemented
-Features Left to Implement
-Technology Used
-Testing
+[UX](#ux)
+[Agile Development](#agile-development)
+[Features Implemented](#features-implemented)
+[Technology Used](#technology-used)
+[Testing](#testing)
 Bugs
 Deployment
-Resources
 Credits and Acknowledgements
 
 # UX
@@ -138,6 +136,14 @@ The website is mobile-friendly and responsive across all devices, optimized with
 - Other: Google Maps API, Font Awesome for icons, and Crispy Forms for Django form styling.
 
 # Testing
+
+
+# Bugs
+
+## Solved Bugs
+
+## Known Bugs
+
 
 # Deployment
 
