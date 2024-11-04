@@ -5,7 +5,7 @@ View the live project here
 Dar Tangier is a Moroccan-themed, responsive restaurant website with a registration and reservation system for customers to book tables, view the menu, and get in touch with the restaurant. This project was developed as part of the Code Institute's fourth Project Portfolio
 
 # Table of Contents
-UX
+UX(#UX)
 Agile Development
 Features Implemented
 Features Left to Implement
@@ -141,6 +141,163 @@ The website is mobile-friendly and responsive across all devices, optimized with
 
 # Deployment
 
-# Ressources
+## Steps for Deploying a Django Application on Heroku
+1. Create the Heroku App
+- Sign Up or Log In to Heroku:
+    - Go to the Heroku website (https://www.heroku.com/) and either sign up for a new account or log into your existing account.
+- Create a New App:
+    - On the Heroku dashboard, click the “New” button, then select “Create New App”.
+    - Enter a unique name for your application (for example, "Django Cafe App"). Remember, the name must be unique across all Heroku apps.
+    - Choose the region where you want to deploy your app; typically, you’d select the one closest to your target audience (like EU or US).
+    - Click “Create App” to finalize the process.
+
+- Configure Deployment Method:
+    - Navigate to the "Deploy" tab within your new app's dashboard.
+    - Select “GitHub” as your deployment method.
+    - Connect your GitHub account to Heroku if prompted. This allows Heroku to access your repositories.
+    - Find your repository from the list and connect it.
+
+2. Set Up Environment Variables
+- Create Environment Variables in Your Django Project:
+    - In your Django project directory, create a file named env.py at the root level.
+    - Inside env.py, import the os module. Set up necessary environment variables as follows:
+    ```
+    import os
+    os.environ['SECRET_KEY'] = 'your-unique-secret-key'
+    os.environ['DATABASE_URL'] = 'your-database-url'
+    ```
+
+- Update settings.py:
+    - Open your settings.py file and modify it to use the environment variables:
+        - Replace the existing SECRET_KEY line with:
+        ```
+        SECRET_KEY = os.environ.get('SECRET_KEY')
+        ```
+        - For the database configuration, use dj_database_url to parse the DATABASE_URL:
+        ```
+        import dj_database_url
+        DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+        ```
+3. Add Required Imports:
+- At the top of your settings.py, add the necessary imports:
+```
+from pathlib import Path
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+```
+4. Set Environment Variables in Heroku:
+- In your Heroku app dashboard, go to the “Settings” tab and click on “Reveal Config Vars”.
+- Add the DATABASE_URL and SECRET_KEY keys with their respective values.
+3. Configure Static Files and Templates
+- Static Files Settings:
+    - In settings.py, configure your static files settings as follows:
+    ```
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    ```
+-  Templates Directory:
+    - Set up the templates directory:
+    ```
+    TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+    ```
+    - Modify the TEMPLATES setting to include the new directory:
+    ```
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [TEMPLATES_DIR],
+            ...
+        },
+    ]
+    ```
+- Allowed Hosts:
+    - In settings.py, update the ALLOWED_HOSTS list to include your Heroku app URL:
+        ```
+        ALLOWED_HOSTS = ['your-app-name.herokuapp.com']
+         ````
+
+- Create Required Directories:
+    - In your project structure, create two new folders at the top level: static and templates, to hold your static files and HTML templates, respectively.
+
+4. Create a Procfile
+- Setting Up the Procfile:
+    - In the root directory of your Django project, create a file named Procfile (with a capital "P").
+    - Inside the Procfile, add the following line to specify how to run your application:
+    ```
+    web: gunicorn your_project_name.wsgi
+    ```
+
+5. Migrate Database Models
+- Open your terminal and run the migrations to apply your models to the new PostgreSQL database:
+```
+python manage.py migrate
+```
+6. Push Changes to GitHub
+- Stage, commit, and push your changes to the GitHub repository:
+```
+git add .
+git commit -m "Configured deployment settings for Heroku"
+git push origin main
+```
+
+7. Deploy the Application
+- Deploy on Heroku:
+    - Go back to the Heroku dashboard, navigate to the "Deploy" tab, and manually trigger a deployment of your branch.
+    - Monitor the build log for any errors during the build process.
+- Check Deployment Status:
+    - If the deployment is successful, Heroku will display a message indicating that your app has been deployed, along with a link to your live application.
+
+- Troubleshooting:
+    - If your initial builds fail (common issues might include incorrect static file configuration or misnamed directories), review the error messages, make the necessary code adjustments, and redeploy.
+
+## Forking and Cloning a GitHub Repository
+- How to Fork this Project:
+    1. Login to [GitHub](https://github.com/).
+    2. Navigate to the repository: https://github.com/BilalEssafi1/dar-tangier-project.
+    3. Click on the Fork button in the top-right corner.  
+    4. Select Create a new fork.
+
+- How to Clone this Project:
+    1. Login to [GitHub](https://github.com/).
+    2. Go to the repository: Login to https://github.com/BilalEssafi1/dar-tangier-project.
+    3. Click the green Code button.
+    4. Under the Clone section, choose the method to clone the repository (HTTPS, SSH, or GitHub CLI).
+    5. Open the terminal in your code editor
+    - Use the cd command to navigate to the directory where you want to clone the repository.
+    6. Run the git clone command followed by the repository URL you copied, and press Enter. 
+
 
 # Credits and Acknowledgement
+
+This project benefited from various resources, tutorials, and creative assets, helping shape Dar Tangier’s functionality and visual appeal:
+- Code and Structure Inspiration:
+    - [Code Institute's Whiskey Drop Project](https://github.com/Code-Institute-Solutions/BootstrappingYourNextBigIdea-BS4): Provided a foundational structure for organizing the project.
+    - Code Innstitute's I Think Therefore I Blog Project: Used as a guide for initial Django setup and deployment.
+
+- Images and Visual Assets:
+    - [Leonardo AI](https://leonardo.ai/): Used to create the Dar Tangier logo.
+    - Freepik and iStock:
+        - Couscous Dish: [Freepik](https://de.freepik.com/premium-ki-bild/marokkanisches-couscous-gericht_52159730.htm)
+        - Moroccan Pastilla: [iStock](https://www.istockphoto.com/de/foto/frische-marokkanische-pastilla-gm141206983-19535897)
+        - Chicken Tajine: [Eat.de](https://eat.de/rezept/haehnchen-tajine-mit-gemuese/) 
+        - Hummus: [Freepik](https://www.freepik.com/premium-ai-image/moroccan-spiced-carrot-hummus_154993129.htm)
+        - Zaalouk: [iStock](https://www.istockphoto.com/de/search/2/image-film?page=2&phrase=zaalouk)
+        - Moroccan Salad: [Freepik](https://www.freepik.com/premium-photo/traditional-moroccan-salad-with-onions-tomatoes-cucumber_31927142.htm)
+        - Mint Tea: [Freepik](https://www.freepik.com/premium-ai-image/moroccan-mint-tea-traditional-arabic-drink-from-morocco-traditional-refreshing-moroccan-drink_148078288.htm)
+    - Restaurant and Hero Images:
+        - Hero Image: [Explore Worldwide](https://www.exploreworldwide.eu/holidays/a-taste-of-morocco-imperial-cities-and-deserts)
+        - Restaurant Image: [Mandarin Oriental](https://eattravel.de/mandarin-oriental-muscat-eroeffnung/), [American Express Travel](https://www.americanexpress.com/en-gb/travel/discover/property/Oman/Muscat/Mandarin-Oriental-Muscat), and [Hulutrip](http://m.hulutrip.com/news/201612/1046338.html)
+
+- Frontend Development Resources:
+    - Full-Width Background Image Guide: CSS Tricks’ [Perfect Full Page Background Image](https://css-tricks.com/perfect-full-page-background-image/)
+    - jQuery CDN: jQuery resources via [releases.jquery.com](https://releases.jquery.com/)
+
+- Django and API Integrations:
+    - Allauth Quickstart Guide: Referenced for user authentication setup in Django, based on Allauth documentation.
+    - [Cat Beans Café Project by Tula Unogi](https://github.com/TulaUnogi/cat-beans-cafe): Provided inspiration for the reservation management functionality and the readme structure. Note: while based on this project, all code was thoroughly modified to meet the specific needs and use case of Dar Tangier.
+    - Google Maps API Integration: Followed a [YouTube tutorial](https://www.youtube.com/watch?v=2LvwNMgW4vw) on Google Maps integration by Google Maps API tutorial.
