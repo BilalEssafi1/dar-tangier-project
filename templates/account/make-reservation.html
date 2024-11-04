@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}{% trans "Make a Reservation" %}{% endblock %}
+
+{% block content %}
+    <!--Hero Section-->
+    <div class="hero-container container-fluid">
+        <div class="overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12">
+                <section class="hero-banner p-5 text-center">
+                    <h1 class="text-uppercase hero-title">{% trans "Make a Reservation" %}</h1>
+                    <h3 class="hero-text">{% trans "Reserve your table with us" %}</h3>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--/Hero Section-->
+
+    <!-- Reservation Form Section -->
+    <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Reservation Form" %}</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-secondary btn-mahagony">{% trans "Submit Reservation" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Reservation Form Section-->
+{% endblock %}

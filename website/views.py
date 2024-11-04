@@ -42,16 +42,16 @@ def make_reservation(request):
     else:
         form = ReservationForm()
     
-    return render(request, 'make_reservation.html', {'form': form})
+    return render(request, 'account/make-reservation.html', {'form': form})
 
 def reservation_success(request):
-    return render(request, 'account/reservation_success.html') 
+    return render(request, 'account/reservation-success.html') 
 
 # Manage reservations
 @login_required
 def manage_reservations(request):
     reservations = Reservation.objects.filter(user=request.user)
-    return render(request, 'account/manage_reservations.html', {'reservations': reservations})
+    return render(request, 'account/manage-reservations.html', {'reservations': reservations})
 
 # Update a reservation 
 @login_required
@@ -62,7 +62,7 @@ def update_reservation(request, reservation_id):
         form.save()
         messages.success(request, "Reservation updated successfully!")
         return HttpResponseRedirect(reverse('reservation_success'))
-    return render(request, 'account/reservation_update.html', {'form': form})
+    return render(request, 'account/reservation-update.html', {'form': form})
 
 # Delete a reservation
 @login_required
@@ -72,7 +72,7 @@ def delete_reservation(request, reservation_id):
         reservation.delete()
         messages.success(request, "Reservation deleted successfully.")
         return HttpResponseRedirect(reverse('index'))
-    return render(request, 'account/reservation_confirm_delete.html', {'reservation': reservation})
+    return render(request, 'account/reservation-confirm-delete.html', {'reservation': reservation})
 
 # Update User Information
 @login_required
@@ -107,4 +107,4 @@ def delete_account(request):
         user.delete() 
         messages.success(request, "Your account has been deleted.")
         return redirect("index") 
-    return render(request, "account/confirm_delete_account.html")
+    return render(request, "account/confirm-delete_account.html")

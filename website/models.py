@@ -45,9 +45,9 @@ class Reservation(models.Model):
     is_confirmed = models.BooleanField(default=False)
 
     def clean(self):
-        # Check guest count does not exceed 8
-        if self.guests > 8:
-            raise ValidationError("A reservation can only be made for up to 8 guests.")
+        # Check guest count does not exceed 4
+        if self.guests > 4:
+            raise ValidationError("A reservation can only be made for up to 4 guests.")
 
         # Check if the reservation date is in the past
         if self.reservation_date < timezone.now().date():
