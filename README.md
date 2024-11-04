@@ -81,13 +81,61 @@ I initiated this project with a clear intent to streamline workflow and effectiv
 For a comprehensive overview of the project's progress and workflow, please refer to [this Kanban page](https://github.com/users/BilalEssafi1/projects/2)
 
 ## User Stories
+To kickstart the project, I adopted a user-centric approach. By envisioning myself as a potential user, I identified key features and functionalities that would enhance the website's usability and appeal. I then translated these insights into a set of user stories, prioritizing core features that would provide a solid foundation for the website. 
 
+Each user story was broken down into smaller, actionable tasks, allowing for a structured and efficient development process. As I progressed through the development phase, I tracked my progress and documented any challenges or solutions encountered. This approach ensured a transparent and organized development workflow. 
 
+By prioritizing user needs and following an agile methodology, I aimed to deliver a high-quality website that meets the expectations of both users and stakeholders. 
+
+### List of User Stories
+1. [User Story: Home Page](https://github.com/BilalEssafi1/dar-tangier-project/issues/15)
+2. [User Story: Admin Panel](https://github.com/BilalEssafi1/dar-tangier-project/issues/22)
+3. [User Story: Sign-Up for Account](https://github.com/BilalEssafi1/dar-tangier-project/issues/16)
+4. [User Story: Sign-In to Account](https://github.com/BilalEssafi1/dar-tangier-project/issues/17)
+5. [User Story: Manage Reservations](https://github.com/BilalEssafi1/dar-tangier-project/issues/18)
+6. [User Story: Delete Account](https://github.com/BilalEssafi1/dar-tangier-project/issues/19)
+7. [User Story: Forgot Password](https://github.com/BilalEssafi1/dar-tangier-project/issues/20)
+8. [User Story: Manage User Information](https://github.com/BilalEssafi1/dar-tangier-project/issues/21)
 
 
 # Features Implemented
 
+## Homepage
+- Navbar: User-friendly navigation bar is present on all pages and it adapts to the user's authentication status (logged in or not.) Logged-in users have access to profile and reservation management features. 
+- Home Page: Displays a visually appealing hero image, well-organized content like Introduction, Featured Dishes and Contact Form. 
+- Footer: Displays essential information such as contact details, social media links, and opening hours. 
+
+## User Registration and Profile
+- Account Creation: Users can register to make reservations.
+- Profile Management: Users can update profile details and change passwords.
+- Account Deletion: Option to delete account with confirmation prompts.
+
+## Reservations
+- Booking Form: Allows users to select date, time, and guest count.
+- Reservation Success and Management: Users receive confirmation and can manage reservations via their profile.
+- Table Availability: System checks for available tables and confirms reservation.
+
+## Menu
+- Dish Categories: Starters, main courses, and desserts with descriptions and pricing.
+
+## Location
+- Map Integration: Uses Google Maps to show the restaurant’s location.
+
+## Responsive Design
+The website is mobile-friendly and responsive across all devices, optimized with Bootstrap for consistent styling.
+
+## Future Feature ideas
+- Enhanced Reservation Notifications: Email reminders or SMS for confirmed reservations.
+- Menu Management for Admin: Allow admin users to update the menu dynamically.
+- Table Availability Display: Real-time display of available tables before booking.
+
+
 # Technology Used
+- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Backend: Django, Python
+- Database: PostgreSQL (configured for production via DATABASE_URL)
+- Deployment: Deployed on Heroku, with dj_database_url for database handling.
+- Other: Google Maps API, Font Awesome for icons, and Crispy Forms for Django form styling.
 
 # Testing
 
