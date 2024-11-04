@@ -5,14 +5,14 @@ View the live project here
 Dar Tangier is a Moroccan-themed, responsive restaurant website with a registration and reservation system for customers to book tables, view the menu, and get in touch with the restaurant. This project was developed as part of the Code Institute's fourth Project Portfolio
 
 # Table of Contents
-[UX](#ux)
-[Agile Development](#agile-development)
-[Features Implemented](#features-implemented)
-[Technology Used](#technology-used)
-[Testing](#testing)
-Bugs
-Deployment
-Credits and Acknowledgements
+1. [UX](#ux)
+2. [Agile Development](#agile-development)
+3. [Features Implemented](#features-implemented)
+4. [Technology Used](#technology-used)
+5. [Testing](#testing)
+6. [Bugs](#bugs)
+7. [Deployment](#deployment)
+8. [Credits and Acknowledgements](#credits-and-acknowledgement)
 
 # UX
 
@@ -137,10 +137,22 @@ The website is mobile-friendly and responsive across all devices, optimized with
 
 # Testing
 
+## Responsiveness 
+
+
+# Manuel testing
+
+| Test Case | Action | Expectation | Pass/Fail |
+| --- | --- | --- | --- |
+| Contact Form Submission and EmailJS | This was tested by filling out the "Get in Touch" form with valid information, submitting it, and then checking if the email arrived in the Dar Tangier inbox.| The user receives a confirmation alert upon submission, and the Dar Tangier inbox receives an email containing the message details. | Pass | 
+| 1 | |  |  | 
+| 1 | |  |  | 
+| 1 | |  |  | 
 
 # Bugs
 
 ## Solved Bugs
+- The "Get in Touch" form allowed empty message submissions, as users could submit the form with whitespace in the textarea field. To resolve this, I added JavaScript validation that checks for non-empty content, preventing form submission if the field is blank. This solution ensures users provide an input before the form can be submitted.
 
 ## Known Bugs
 
@@ -303,7 +315,8 @@ This project benefited from various resources, tutorials, and creative assets, h
     - Full-Width Background Image Guide: CSS Tricks’ [Perfect Full Page Background Image](https://css-tricks.com/perfect-full-page-background-image/)
     - jQuery CDN: jQuery resources via [releases.jquery.com](https://releases.jquery.com/)
 
-- Django and API Integrations:
+- Code, Django and API Integrations:
     - Allauth Quickstart Guide: Referenced for user authentication setup in Django, based on Allauth documentation.
     - [Cat Beans Café Project by Tula Unogi](https://github.com/TulaUnogi/cat-beans-cafe): Provided inspiration for the reservation management functionality and the readme structure. Note: while based on this project, all code was thoroughly modified to meet the specific needs and use case of Dar Tangier.
     - Google Maps API Integration: Followed a [YouTube tutorial](https://www.youtube.com/watch?v=2LvwNMgW4vw) on Google Maps integration by Google Maps API tutorial.
+    - Prevention of Empty Submission in Contact Form: Followed some instructions from [stackoverflow](https://stackoverflow.com/questions/17271730/prevent-submitting-blank-input-and-textarea) to avoid empty submissions.
