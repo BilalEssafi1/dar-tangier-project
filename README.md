@@ -140,14 +140,14 @@ The website is mobile-friendly and responsive across all devices, optimized with
 ## Responsiveness 
 
 
-# Manuel testing
+# Manual testing
 
 | Test Case | Action | Expectation | Pass/Fail |
 | --- | --- | --- | --- |
 | Contact Form Submission and EmailJS | This was tested by filling out the "Get in Touch" form with valid information, submitting it, and then checking if the email arrived in the Dar Tangier inbox.| The user receives a confirmation alert upon submission, and the Dar Tangier inbox receives an email containing the message details. | Pass | 
-| 1 | |  |  | 
-| 1 | |  |  | 
-| 1 | |  |  | 
+| Gallery Carousel | Tested by clicking the "View" button and navigating through the gallery. | A pop-up window opens with the gallery and includes functional "Next" and "Previous" buttons. | Pass | 
+| Navigation | Tested by licking nav links and checking that the user ends up on the correct landing page. | User is redirected to the correct landing page | Pass | 
+|  | |  |  | 
 
 # Bugs
 

@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # Secret key
-SECRET_KEY = os.environ.get("SECRET_KEY")
-GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
+SECRET_KEY = os.environ.get('SECRET_KEY')
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
