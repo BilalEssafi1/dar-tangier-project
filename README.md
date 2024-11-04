@@ -319,4 +319,3 @@ This project benefited from various resources, tutorials, and creative assets, h
     - Allauth Quickstart Guide: Referenced for user authentication setup in Django, based on Allauth documentation.
     - [Cat Beans Café Project by Tula Unogi](https://github.com/TulaUnogi/cat-beans-cafe): Provided inspiration for the reservation management functionality and the readme structure. Note: while based on this project, all code was thoroughly modified to meet the specific needs and use case of Dar Tangier.
     - Google Maps API Integration: Followed a [YouTube tutorial](https://www.youtube.com/watch?v=2LvwNMgW4vw) on Google Maps integration by Google Maps API tutorial.
-    - Prevention of Empty Submission in Contact Form: Followed some instructions from [stackoverflow](https://stackoverflow.com/questions/17271730/prevent-submitting-blank-input-and-textarea) to avoid empty submissions.

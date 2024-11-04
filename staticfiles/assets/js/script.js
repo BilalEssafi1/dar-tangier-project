@@ -39,13 +39,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-// JavaScript for avoicing empty contact submissions
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    const messageField = document.getElementById('message');
-    if (messageField.value.trim() === '') {
-        alert('Please enter a message before submitting.');
-        messageField.focus();
-        event.preventDefault();
-    }
-});

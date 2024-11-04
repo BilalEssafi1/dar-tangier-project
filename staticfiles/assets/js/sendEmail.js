@@ -8,6 +8,12 @@ function sendEmail(event) {
     const userEmail = userEmailInput.value;
     const userMessage = userMessageInput.value;
 
+    // Validate that the message field is not empty
+    if (!userMessage || userMessage.length === 0 || userMessage.replace(/\s/g, '').length === 0) {
+        alert('Please enter a message before submitting.');
+        userMessageInput.focus();
+        return;
+    }
     // Define the email parameters
     const templateParams = {
         from_email: userEmail,
