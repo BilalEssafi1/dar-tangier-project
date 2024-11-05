@@ -38,7 +38,7 @@ def make_reservation(request):
         form = ReservationForm(request.POST, user=request.user)
         if form.is_valid():
             form.save()
-            return redirect('reservation-success.html') 
+            return redirect('reservation_success') 
     else:
         form = ReservationForm()
     
