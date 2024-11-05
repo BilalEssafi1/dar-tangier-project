@@ -153,7 +153,7 @@ The website is mobile-friendly and responsive across all devices, optimized with
 
 ## Solved Bugs
 - The "Get in Touch" form allowed empty message submissions, as users could submit the form with whitespace in the textarea field. To resolve this, I added JavaScript validation that checks for non-empty content, preventing form submission if the field is blank. This solution ensures users provide an input before the form can be submitted.
-- The Google Maps API wasn't displaying correctly because I didn't use consistent naming. In urls.py, I referenced the wrong view (views-location instead of views.location_view), and the environment variable was incorrectly named GOOGLE_MAPS_API_KEY instead of GOOGLE_API_KEY. Fixing these to be consistent resolved the issue.
+- The Google Maps API wasn't displaying correctly because I didn't use consistent naming. In urls.py, I referenced the wrong view (views-location instead of views.location_view), and the environment variable was incorrectly named GOOGLE_MAPS_API_KEY instead of GOOGLE_API_KEY. Fixing these to be consistent resolved the issue. Additionally, I forgot to add the Google API key in Heroku under Settings -> Config Vars to ensure it works correctly on the deployed website.
 - The reservation success page wasn't displaying correctly due to inconsistent URL pattern naming. In the make_reservation view, I was using redirect('reservation-success') with a hyphen, but in urls.py the pattern was named 'reservation_success' with an underscore. Changing the redirect to use consistent underscore naming (reservation_success) resolved the NoReverseMatch error and fixed the redirection after making a reservation.
 
 
