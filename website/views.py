@@ -25,7 +25,7 @@ def location(request):
     return render(request, 'location.html')
 
 def location_view(request):
-    google_maps_api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
+    google_maps_api_key = os.environ.get('GOOGLE_API_KEY')
     return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
 
 def custom_404(request, exception):
@@ -38,7 +38,7 @@ def make_reservation(request):
         form = ReservationForm(request.POST, user=request.user)
         if form.is_valid():
             form.save()
-            return redirect('reservation_success') 
+            return redirect('reservation-success.html') 
     else:
         form = ReservationForm()
     

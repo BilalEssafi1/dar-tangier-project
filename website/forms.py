@@ -13,7 +13,7 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'reservation_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'reservation_time': forms.Select(attrs={'class': 'form-control'}),
-            'guests': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 8}),
+            'guests': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 4}),
         }
 
     def __init__(self, *args, **kwargs):
