@@ -107,4 +107,4 @@ def delete_account(request):
         user.delete() 
         messages.success(request, "Your account has been deleted.")
         return redirect("index") 
-    return render(request, "account/confirm-delete_account.html")
+    return render(request, "account/confirm-delete-account.html")
