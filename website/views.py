@@ -32,6 +32,7 @@ def location_view(request):
 def custom_404(request, exception):
     print("Custom 404 handler called")
     return render(request, 'account/404.html', status=404)
+
 # Make a reservation
 @login_required
 def make_reservation(request):

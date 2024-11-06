@@ -4,7 +4,7 @@ from . import views
 from django.conf.urls import handler404
 from django.contrib.auth import views as auth_views
 
-handler404 = views.custom_404
+handler404 = 'website.views.custom_404'
 
 urlpatterns = [
     path('', views.home, name='index'),
