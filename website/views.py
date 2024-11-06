@@ -11,6 +11,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth import logout
+from django.contrib.auth.views import PasswordResetView
 
 # Create your views here.
 
@@ -108,3 +109,7 @@ def delete_account(request):
         messages.success(request, "Your account has been deleted.")
         return redirect("index") 
     return render(request, "account/confirm-delete-account.html")
+
+# Reset Password
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'password-reset.html'

@@ -151,8 +151,10 @@ The website is mobile-friendly and responsive across all devices, optimized with
 | User Login | This was tested by logging in with a valid user account and verifying that the user is being redirected to the logged in intreface| The user is automatically redirected to the logged in interface after successful login | Pass | 
 | Admin Panel | This was tested by logging in as an admin and performing CRUD operations on content and users | The admin is redirected to the admin dashboard after successful log in and can view, create, delete users and manage their permissions as well as view, update and create and delete restaurant reservations| Pass | 
 | Make a reservation | This was tested by logging in with a valid user account and making a restaurant reservation | A reservation form opens when the user clicks on the "Make a Reservation" or "Book a table" button when logged in that allows them to pick a date, reservation time slot and the number of guests | Pass | 
-| Manage Reservation | This was tested by logging in with a valid user account that has a confirmed reservation | The user is redirected to reservation overview page when clicking on "Manage reservations" and can edit date, time and number of guests or delete the reservation | Pass | 
-| Manage User Profile |  |  |  | 
+| Manage Reservation | This was tested by logging in with a valid user account that has a confirmed reservation and updating reservation information | The user is redirected to reservation overview page when clicking on "Manage reservations" or the "Book a table" button and can edit date, time and number of guests or delete the reservation | Pass | 
+| Manage User Profile | This was tested by logging in with a valid user account and changing and deleting user information | The usere is redirected to a user profile overview page and can add, edit or Delete their account | Pass | 
+| Forgot Password | |  |  | 
+| 404 | |  |  | 
 
 
 
