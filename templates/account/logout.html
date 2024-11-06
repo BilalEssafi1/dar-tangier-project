@@ -5,7 +5,7 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-    <!--Hero Section-->
+    <!-- Hero Section -->
     <div class="hero-container container-fluid">
         <div class="overlay">&nbsp;</div>
         <div class="row">
@@ -17,15 +17,18 @@
             </div>
         </div>
     </div>
-    <!--/Hero Section-->
+    <!-- /Hero Section -->
 
     <!-- Sign Out Section -->
     <div class="menu-section container-fluid py-5" style="background-color: rgb(255, 247, 237);">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="card shadow-sm">
-                    <div class="card-body p-4 text-center">
-                        <p>{% trans 'Please confirm your action below.' %}</p>
+                    <div class="card-body p-4">
+                        <h3 class="text-uppercase text-center mb-4">{% trans "Sign Out" %}</h3>
+                        <p class="text-center mb-4">
+                            {% trans 'Please confirm your action below.' %}
+                        </p>
                         <form method="post" action="{% url 'account_logout' %}">
                             {% csrf_token %}
                             {% if redirect_field_value %}
@@ -42,5 +45,5 @@
             </div>
         </div>
     </div>
-    <!--/Sign Out Section-->
+    <!-- /Sign Out Section -->
 {% endblock %}

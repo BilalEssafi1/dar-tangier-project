@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth import logout
-from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 # Create your views here.
 
@@ -112,4 +112,13 @@ def delete_account(request):
 
 # Reset Password
 class CustomPasswordResetView(PasswordResetView):
-    template_name = 'password-reset.html'
+    template_name = 'account/password-reset.html'
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'account/password-reset-done.html'
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'account/password-change.html'
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'account/password-reset-complete.html'
