@@ -42,7 +42,7 @@ class Reservation(models.Model):
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
     created_at = models.DateTimeField(auto_now_add=True)
-    is_confirmed = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=True)
 
     def clean(self):
         # Check guest count does not exceed 4
