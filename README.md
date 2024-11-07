@@ -150,9 +150,24 @@ The website is mobile-friendly and responsive across all devices, optimized with
 
 ## Validator Testing
 
-![Screenshot google maps design](static/assets/images/readme/accessibility.png)
+- HTML
+    - No errors were returned when passing through the official W3C validator.
+![Screenshot html testing](static/assets/images/readme/html-validation.png)
+
+- CSS
+    - No errors were returned when passing through the official Jigsaw validator.
+![Screenshot html testing](static/assets/images/readme/css-validation.png)
+
+- JavaScript
+    - No significant issues were returned when passing the code through Jshint.
+![Screenshot javascript testing](static/assets/images/readme/jshint-validation.png)
+
+- PEP8 Validation: The code was validated using PEP8 style guide without any errors.
+![Screenshot javascript testing](static/assets/images/readme/pep8-validation.png)
+
 - Accessibility
     - I confirmed that the colors and fonts chosen are easy to read and accessible by running it through lighthouse in devtools.
+![Screenshot accessibility testing](static/assets/images/readme/accessibility.png)
 
 ## Manual testing
 
