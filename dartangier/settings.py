@@ -37,7 +37,7 @@ GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
