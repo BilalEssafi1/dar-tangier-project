@@ -37,7 +37,7 @@ DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS [
+CSRF_TRUSTED_ORIGINS = [
     'https://dar-tangier-73a241db6cbe.herokuapp.com',
     '8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
     'ui.dev'
