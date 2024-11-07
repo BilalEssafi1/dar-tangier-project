@@ -37,14 +37,17 @@ GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ALLOWED_HOSTS = [
+    '8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
+    '.herokuapp.com',
+    'localhost',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net/',
     'https://*.herokuapp.com',
-    'https://ui.dev'
 ]
 
 # Application definition
