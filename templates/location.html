@@ -11,14 +11,18 @@
                         <h3 class="hero-text">Where you can find us.</h3>
                         {% if user.is_authenticated %}
                         <!--Button to open reservation form-->
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
-                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal" class="btn btn-primary btn-sand d-inline-block d-sm-none">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
+                        </a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal" class="btn btn-primary btn-sand d-none d-sm-inline-block">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
                         </a>
                         {% else %}
-                        <a href="{% url 'account_login' %}">
-                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
-                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        <a href="{% url 'account_login' %}" class="btn btn-primary btn-sand d-inline-block d-sm-none">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
+                        </a>
+                        <a href="{% url 'account_login' %}" class="btn btn-primary btn-sand d-none d-sm-inline-block">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
                         </a>
                         {% endif %}
                     </section>

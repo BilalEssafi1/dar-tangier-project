@@ -9,20 +9,27 @@
                     <section class="hero-banner p-5 text-center">
                         <h1 class="text-uppercase hero-title">Welcome to Dar Tangier!</h1>
                         <h3 class="hero-text">Experience the rich flavors and warm hospitality of Morocco in the heart of Munich.</h3>
-                        <a href="{% url 'menu' %}">
-                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">View Menu<i class="fa-solid fa-bars"></i></button>
-                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">View Menu<i class="fa-solid fa-bars"></i></button>
+                        <!--Button to view menu -->
+                        <a href="{% url 'menu' %}" class="btn btn-primary btn-sand d-inline-block d-sm-none">
+                            View Menu<i class="fa-solid fa-bars"></i>
+                        </a>
+                        <a href="{% url 'menu' %}" class="btn btn-primary btn-sand d-none d-sm-inline-block">
+                            View Menu<i class="fa-solid fa-bars"></i>
                         </a>
                         {% if user.is_authenticated %}
                         <!--Button to open reservation form-->
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
-                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal" class="btn btn-primary btn-sand d-inline-block d-sm-none">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
+                        </a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#reservationModal" class="btn btn-primary btn-sand d-none d-sm-inline-block">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
                         </a>
                         {% else %}
-                        <a href="{% url 'account_login' %}">
-                            <button type="button" class="btn btn-primary btn-sand d-inline-block d-sm-none">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
-                            <button type="button" class="btn btn-primary btn-sand d-none d-sm-inline-block">Make a Reservation<i class="fa-regular fa-calendar"></i></button>
+                        <a href="{% url 'account_login' %}" class="btn btn-primary btn-sand d-inline-block d-sm-none">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
+                        </a>
+                        <a href="{% url 'account_login' %}" class="btn btn-primary btn-sand d-none d-sm-inline-block">
+                            Make a Reservation<i class="fa-regular fa-calendar"></i>
                         </a>
                         {% endif %}
                     </section>

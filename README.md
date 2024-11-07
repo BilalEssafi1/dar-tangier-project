@@ -20,7 +20,6 @@ Dar Tangier is a Moroccan-themed, responsive restaurant website with a registrat
 Dar Tangier is designed for food enthusiasts, locals, and tourists looking to experience authentic Moroccan cuisine in Munich. The website provides essential features for easy reservation and navigation, suitable for individuals, families, and groups looking to dine at Dar Tangier. 
 
 ## Design 
-![Screenshot website design](static/assets/images/readme/homepage.png)
 The Dar Tangier website embraces a color palette inspired by traditional Moroccan decor, with warm and inviting tones that reflect the ambiance of the restaurant:
 
 - Mahogany and Sand: Rich shades of mahogany and warm sand tones are used as primary colors, 
@@ -101,23 +100,31 @@ By prioritizing user needs and following an agile methodology, I aimed to delive
 ## Homepage
 - Navbar: User-friendly navigation bar is present on all pages and it adapts to the user's authentication status (logged in or not.) Logged-in users have access to profile and reservation management features. 
 - Home Page: Displays a visually appealing hero image, well-organized content like Introduction, Featured Dishes and Contact Form. 
+![Screenshot website design](static/assets/images/readme/homepage.png)
 - Footer: Displays essential information such as contact details, social media links, and opening hours. 
+![Screenshot footer design](static/assets/images/readme/footer.png)
 
 ## User Registration and Profile
 - Account Creation: Users can register to make reservations.
+![Screenshot registration design](static/assets/images/readme/register.png)
 - Profile Management: Users can update profile details and change passwords.
+![Screenshot user management design](static/assets/images/readme/profile.png)
 - Account Deletion: Option to delete account with confirmation prompts.
+![Screenshot delete account](static/assets/images/readme/delete.png)
 
 ## Reservations
 - Booking Form: Allows users to select date, time, and guest count.
+![Screenshot reservation design](static/assets/images/readme/reservation.png)
 - Reservation Success and Management: Users receive confirmation and can manage reservations via their profile.
+![Screenshot reservation success page design](static/assets/images/readme/confirmation.png)
 - Table Availability: System checks for available tables and confirms reservation.
 
 ## Menu
 - Dish Categories: Starters, main courses, and desserts with descriptions and pricing.
-
+![Screenshot menu design](static/assets/images/readme/menu.png)
 ## Location
 - Map Integration: Uses Google Maps to show the restaurant’s location.
+![Screenshot google maps design](static/assets/images/readme/location.png)
 
 ## Responsive Design
 The website is mobile-friendly and responsive across all devices, optimized with Bootstrap for consistent styling.
@@ -141,8 +148,13 @@ The website is mobile-friendly and responsive across all devices, optimized with
 
 ## Responsiveness 
 
+## Validator Testing
 
-# Manual testing
+![Screenshot google maps design](static/assets/images/readme/accessibility.png)
+- Accessibility
+    - I confirmed that the colors and fonts chosen are easy to read and accessible by running it through lighthouse in devtools.
+
+## Manual testing
 
 | Test Case | Action | Expectation | Pass/Fail |
 | --- | --- | --- | --- |
@@ -155,10 +167,8 @@ The website is mobile-friendly and responsive across all devices, optimized with
 | Make a reservation | This was tested by logging in with a valid user account and making a restaurant reservation | A reservation form opens when the user clicks on the "Make a Reservation" or "Book a table" button when logged in that allows them to pick a date, reservation time slot and the number of guests | Pass | 
 | Manage Reservation | This was tested by logging in with a valid user account that has a confirmed reservation and updating reservation information | The user is redirected to reservation overview page when clicking on "Manage reservations" or the "Book a table" button and can edit date, time and number of guests or delete the reservation | Pass | 
 | Manage User Profile | This was tested by logging in with a valid user account and changing and deleting user information | The usere is redirected to a user profile overview page and can add, edit or Delete their account | Pass | 
-| Forgot Password | |  |  | 
-
-
-
+| Forgot Password | This was tested by clicking on the Forgot Password link in the log in section | The user is redirected to a landing page that informs them how they can get a new password | Pass | 
+| Logout | This was tested by clicking on the Logout button to log out from the website | The user is redirected to a landing page that confirms if they want to logout and if they confirm get redirected to the home page| Pass | 
 
 # Bugs
 
@@ -167,9 +177,6 @@ The website is mobile-friendly and responsive across all devices, optimized with
 - The Google Maps API wasn't displaying correctly because I didn't use consistent naming. In urls.py, I referenced the wrong view (views-location instead of views.location_view), and the environment variable was incorrectly named GOOGLE_MAPS_API_KEY instead of GOOGLE_API_KEY. Fixing these to be consistent resolved the issue. Additionally, I forgot to add the Google API key in Heroku under Settings -> Config Vars to ensure it works correctly on the deployed website.
 - The reservation success page wasn't displaying correctly due to inconsistent URL pattern naming. In the make_reservation view, I was using redirect('reservation-success') with a hyphen, but in urls.py the pattern was named 'reservation_success' with an underscore. Changing the redirect to use consistent underscore naming (reservation_success) resolved the NoReverseMatch error and fixed the redirection after making a reservation.
 - The reservation modal form failed to load for logged-in users when accessing it from the menu or location pages because the ReservationForm's user parameter wasn't being passed to these templates. I fixed this by implementing a context processor in context_processors.py that automatically includes ReservationForm(user=request.user) across all templates, making the form accessible site-wide.
-
-
-## Known Bugs
 
 
 # Deployment
