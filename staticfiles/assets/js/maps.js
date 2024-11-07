@@ -10,4 +10,4 @@ window.initMap = function() {
         map: map,
         title: "Leopoldstraße 50, Munich"
     });
-}
+};
