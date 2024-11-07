@@ -16,6 +16,10 @@ import sys
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +33,7 @@ GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
 
 ALLOWED_HOSTS = [
     '8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
