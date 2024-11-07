@@ -1,7 +1,6 @@
 from django.urls import include, path
 from django.contrib import admin
 from . import views
-from django.conf.urls import handler404
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -19,5 +18,3 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls'))
     ]
-
-handler404 = 'website.views.custom_404'

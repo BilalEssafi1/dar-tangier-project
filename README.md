@@ -126,6 +126,8 @@ The website is mobile-friendly and responsive across all devices, optimized with
 - Enhanced Reservation Notifications: Email reminders or SMS for confirmed reservations.
 - Menu Management for Admin: Allow admin users to update the menu dynamically.
 - Table Availability Display: Real-time display of available tables before booking.
+- Add custom 404 pages
+- Add self-service forgot password feature via email verification
 
 
 # Technology Used
@@ -154,7 +156,7 @@ The website is mobile-friendly and responsive across all devices, optimized with
 | Manage Reservation | This was tested by logging in with a valid user account that has a confirmed reservation and updating reservation information | The user is redirected to reservation overview page when clicking on "Manage reservations" or the "Book a table" button and can edit date, time and number of guests or delete the reservation | Pass | 
 | Manage User Profile | This was tested by logging in with a valid user account and changing and deleting user information | The usere is redirected to a user profile overview page and can add, edit or Delete their account | Pass | 
 | Forgot Password | |  |  | 
-| 404 | |  |  | 
+
 
 
 

@@ -28,13 +28,6 @@ def location(request):
 def location_view(request):
     google_maps_api_key = os.environ.get('GOOGLE_API_KEY')
     return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
-
-def custom_404(request,  exception):
-    context = {'request_path': request.path,}
-    response = render(request, 'account/404.html', context)
-    response.status_code = 404
-    return response
-
 # Make a reservation
 @login_required
 def make_reservation(request):
