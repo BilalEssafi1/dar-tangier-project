@@ -15,22 +15,9 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
-import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Email configuration
-
-env = environ.Env()
-environ.Env.read_env()
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER') 
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -44,7 +31,7 @@ GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
-                '.herokuapp.com']
+                '.herokuapp.com', 'localhost']
 
 
 # Application definition

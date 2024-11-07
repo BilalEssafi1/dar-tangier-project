@@ -29,9 +29,11 @@ def location_view(request):
     google_maps_api_key = os.environ.get('GOOGLE_API_KEY')
     return render(request, 'location.html', {'google_maps_api_key': google_maps_api_key})
 
-def custom_404(request, exception):
-    print("Custom 404 handler called")
-    return render(request, 'account/404.html', status=404)
+def custom_404(request,  exception):
+    context = {'request_path': request.path,}
+    response = render(request, 'account/404.html', context)
+    response.status_code = 404
+    return response
 
 # Make a reservation
 @login_required
@@ -115,11 +117,3 @@ def delete_account(request):
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'account/password-reset.html'
 
-class CustomPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'account/password-reset-done.html'
-
-class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'account/password-change.html'
-
-class CustomPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'account/password-reset-complete.html'
