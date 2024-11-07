@@ -48,17 +48,19 @@
                             Founded by a proud Moroccan from Tangier, our restaurant is a celebration of traditional flavors, 
                             warm hospitality, and the rich heritage of Morocco. Each dish tells a story, inspired by the vibrant 
                             culinary traditions of our homeland, inviting you to experience the warmth and authenticity of Moroccan dining.</h4>
-                            <div class="text-left">
+                            <div class="text-left d-flex align-items-center gap-3">
                                 {% if user.is_authenticated %}
-                                    <a href="#" data-bs-target="#reservationModal" data-bs-toggle="modal">
-                                        <button type="button" class="btn btn-primary btn-mahagony">Book a Table</button>
+                                    <a href="#" data-bs-target="#reservationModal" data-bs-toggle="modal" class="btn btn-primary btn-mahagony">
+                                        Book a Table
                                     </a>
                                 {% else %}
-                                        <a href="{% url 'account_login' %}">
-                                        <button type="button" class="btn btn-primary btn-mahagony">Book a Table</button>
+                                    <a href="{% url 'account_login' %}" class="btn btn-primary btn-mahagony">
+                                        Book a Table
                                     </a>
                                 {% endif %}
-                                <button type="button" class="btn btn-primary btn-mahagony" data-bs-toggle="modal" data-bs-target="#galleryModal">View Photos</button>
+                                <a href="#" class="btn btn-primary btn-mahagony" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                                    View Photos
+                                </a>
                             </div>
                         </section>
                     </div>
@@ -136,9 +138,11 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="{% url 'menu' %}">
-                            <button type="button" class="btn btn-primary d-inline-block d-md-none btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
-                            <button type="button" class="btn btn-primary d-none d-md-inline-block btn-mahagony">View full menu<i class="fa-solid fa-angle-right"></i></button>
+                        <a href="{% url 'menu' %}" class="btn btn-primary d-inline-block d-md-none btn-mahagony">
+                            View full menu<i class="fa-solid fa-angle-right"></i>
+                        </a>
+                        <a href="{% url 'menu' %}" class="btn btn-primary d-none d-md-inline-block btn-mahagony">
+                            View full menu<i class="fa-solid fa-angle-right"></i>
                         </a>
                     </div>
                 </section>
