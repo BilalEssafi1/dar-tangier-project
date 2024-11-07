@@ -38,7 +38,8 @@ DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
 ALLOWED_HOSTS = [
     '8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
     '.herokuapp.com',
-    'localhost'
+    'localhost',
+    'ui.dev'
 ]
 
 
