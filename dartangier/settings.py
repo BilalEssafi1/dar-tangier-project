@@ -38,9 +38,9 @@ DEBUG = os.environ.get('DEBUG') == 'DEVELOPMENT'
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://dar-tangier-73a241db6cbe.herokuapp.com',
-    '8000-bilalessafi-dartangierp-eyq2j2dvw0m.ws.codeinstitute-ide.net',
-    'ui.dev'
+    'https://*.codeinstitute-ide.net/',
+    'https://*.herokuapp.com',
+    'https://ui.dev'
 ]
 
 # Application definition
@@ -126,12 +126,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
